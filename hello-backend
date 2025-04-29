@@ -1,0 +1,71 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v2",
+    "title": "Hello for Echo API",
+    "description": "OAuth2.0 Client Credentails Flow for authentication of our Echo API.",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.swagger.io/support",
+      "email": "support@swagger.io"
+    }
+  },
+  "host": "hello-openshift-hello-world.apps-crc.testing",
+  "basePath": "/",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "hello world",
+        "description": "call hello world api",
+        "operationId": "hello-world",
+         "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              }
+            },
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "app_key": {
+      "type": "apiKey",
+      "name": "app_key",
+      "in": "header"
+    },
+    "app_id": {
+      "type": "apiKey",
+      "name": "app_id",
+      "in": "header"
+    }
+  },
+  "security": [
+        {
+            "app_key": [],
+            "app_id": []
+        }
+    ]
+}
